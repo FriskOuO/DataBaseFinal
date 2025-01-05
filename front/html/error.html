@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>錯誤</title>
+    <link rel="stylesheet" href="../css/styles.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -26,8 +27,16 @@
     </style>
 </head>
 <body>
-    <h1>錯誤</h1>
-    <div class="error">帳號或密碼已存在，請嘗試其他組合的帳號密碼。</div>
-    <a href="register.html">返回註冊頁面</a>
+    <h1 class="error">發生錯誤！</h1>
+    <p id="errorMessage">請稍後再試。</p>
+    <a href="user_login.html">返回登入頁面</a>
+    <script>
+        // 獲取 URL 中的錯誤訊息並顯示
+        const urlParams = new URLSearchParams(window.location.search);
+        const errorMessage = urlParams.get('error');
+        if (errorMessage) {
+            document.getElementById('errorMessage').textContent = decodeURIComponent(errorMessage);
+        }
+    </script>
 </body>
 </html>
