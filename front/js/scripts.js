@@ -10,4 +10,6 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
     } else {
         alert('登入失敗');
     }
+    
+    // 可以在這裡添加一些前端驗證邏輯
 });
