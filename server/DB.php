@@ -1,19 +1,26 @@
 <?php
+class Database {
+    private static $instance = null;
+    private $pdo;
 
-function DB(){
-    $db_host = 'localhost';
-    $db_name = 'final works';
-    $db_user = 'root';
-    $db_password = '';
-    $dsn = "mysql:host=$db_host;dbname=$db_name;charset=utf8";
-    
-    try {
-        $conn = new PDO($dsn, $db_user, $db_password);
-        $response['status'] = 200;
-        $response['result'] = $conn;
-    } catch (PDOException $e) {
-        $response['status'] = $e->getCode();
-        $response['message'] = $e->getMessage();
+    private function __construct() {
+        try {
+            $this->pdo = new PDO('mysql:host=localhost;dbname=final works', 'root', '');
+            $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        } catch (PDOException $e) {
+            die("Could not connect to the database: " . $e->getMessage());
+        }
     }
-    return($response);
+
+    public static function getInstance() {
+        if (self::$instance === null) {
+            self::$instance = new Database();
+        }
+        return self::$instance;
+    }
+
+    public function getConnection() {
+        return $this->pdo;
+    }
 }
+?>
