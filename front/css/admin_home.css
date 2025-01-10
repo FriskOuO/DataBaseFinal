@@ -1,0 +1,97 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2 {
+    color: #333;
+}
+
+.quick-nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.quick-nav li {
+    margin: 10px 0;
+}
+
+.quick-nav a {
+    text-decoration: none;
+    color: #007BFF;
+}
+
+.quick-nav a:hover {
+    text-decoration: underline;
+}
+
+.manage-movies {
+    margin-top: 20px;
+}
+
+.manage-movies button {
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    background-color: #28a745;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.manage-movies button:hover {
+    background-color: #218838;
+}
+
+.search-box {
+    margin-top: 20px;
+    display: flex;
+}
+
+.search-box input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px 0 0 5px;
+}
+
+.search-box button {
+    padding: 10px;
+    border: 1px solid #007BFF;
+    background-color: #007BFF;
+    color: #fff;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+}
+
+.search-box button:hover {
+    background-color: #0056b3;
+}
+
+.logout {
+    margin-top: 20px;
+    text-align: right;
+}
+
+.logout button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #dc3545;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.logout button:hover {
+    background-color: #c82333;
+}
