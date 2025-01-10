@@ -8,9 +8,9 @@
 </head>
 <body>
     <h1>管理者登入</h1>
-    <form id="loginForm" action="../../server/php/login.php" method="post">
-        <label for="username">管理者名稱</label>
-        <input type="text" id="username" name="username" required>
+    <form id="loginForm" action="../../server/php/DoLog_In_front.php" method="post">
+        <label for="account">帳號</label>
+        <input type="text" id="account" name="account" required>
         
         <label for="password">密碼</label>
         <input type="password" id="password" name="password" required>
@@ -19,5 +19,6 @@
         
         <button type="submit">登入</button>
     </form>
+    <?php include '../../server/php/error_handler.php'; display_error('admin'); ?>
 </body>
 </html>

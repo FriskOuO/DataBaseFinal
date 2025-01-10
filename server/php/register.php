@@ -1,43 +1,48 @@
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    require_once "../DB.php"; // 確保這個路徑正確
+session_start();
 
-    $member_account = $_POST['member_account'];
-    $member_password = $_POST['member_password'];
-    $member_name = $_POST['member_name'];
-    $member_email = $_POST['member_email'];
-    $member_celephone = $_POST['member_celephone'];
-    $member_role = $_POST['role'];
+// 假設這裡有一些驗證邏輯
+$account = $_POST['member_account'];
+$password = $_POST['member_password'];
+$name = $_POST['member_name'];
+$email = $_POST['member_email'];
+$celephone = $_POST['member_celephone'];
+$role = $_POST['role'];
 
-    // 檢查帳號和密碼是否相同
-    if ($member_account === $member_password) {
-        header("Location: ../../front/html/error.html?error=" . urlencode("帳號與密碼不可相同"));
-        exit();
-    }
+// 假設這裡有一些錯誤檢查
+$errors = [];
 
-    $response = DB();
+if (empty($account)) {
+    $errors[] = '帳號不能為空';
+}
 
-    if ($response['status'] == 200) {
-        $conn = $response['result'];
+if (empty($password)) {
+    $errors[] = '密碼不能為空';
+}
 
-        // 檢查是否有重複的帳號或密碼
-        $check_sql = "SELECT COUNT(*) FROM `member` WHERE `member_account` = ? OR `member_password` = ?";
-        $check_stmt = $conn->prepare($check_sql);
-        $check_stmt->execute([$member_account, $member_password]);
+if (empty($name)) {
+    $errors[] = '姓名不能為空';
+}
 
-        // 如果沒有重複的帳號或密碼，插入新會員資料
-        if ($check_stmt->fetchColumn() == 0) {
-            $insert_sql = "INSERT INTO `member` (`member_account`, `member_password`, `member_name`, `member_email`, `member_celephone`, `member_role`) VALUES (?, ?, ?, ?, ?, ?)";
-            $insert_stmt = $conn->prepare($insert_sql);
-            $insert_stmt->execute([$member_account, $member_password, $member_name, $member_email, $member_celephone, $member_role]);
+if (empty($email)) {
+    $errors[] = '電子信箱不能為空';
+}
 
-            header("Location: ../../front/html/success.html");
-        } else {
-            header("Location: ../../front/html/error.html?error=" . urlencode("帳號或密碼已存在"));
-        }
-    } else {
-        header("Location: ../../front/html/error.html?error=" . urlencode("資料庫連接失敗"));
-    }
+if (empty($celephone)) {
+    $errors[] = '手機號碼不能為空';
+}
+
+// 如果有錯誤，將錯誤訊息存入 session 並重定向回註冊頁面
+if (!empty($errors)) {
+    $_SESSION['errors'] = $errors;
+    header("Location: ../../front/html/register.html");
     exit();
 }
+
+// 假設這裡有一些註冊邏輯
+// ...
+
+// 註冊成功後重定向回註冊頁面並顯示成功訊息
+header("Location: ../../front/html/register.html?success=true");
+exit();
 ?>
