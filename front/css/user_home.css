@@ -17,33 +17,50 @@ h1, h2 {
     color: #333;
 }
 
-.quick-nav ul {
+.plan ul {
     list-style-type: none;
     padding: 0;
 }
 
-.quick-nav li {
+.plan li {
     margin: 10px 0;
 }
 
-.quick-nav a {
+.plan a {
     text-decoration: none;
     color: #007BFF;
 }
 
-.quick-nav a:hover {
+.plan a:hover {
     text-decoration: underline;
 }
 
 .recommendations {
     margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap; 
+    overflow-x: auto; 
 }
 
-.recommendation-item {
+.recommendation-item, .top10-item {
     background-color: #e9ecef;
     padding: 10px;
-    margin: 10px 0;
+    margin: 10px;
     border-radius: 5px;
+    flex: 0 0 auto; 
+    width: 200px; 
+    height: 300px; 
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    overflow: hidden;
+}
+
+.recommendation-item img, .top10-item img {
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
 }
 
 .search-box {
@@ -87,4 +104,16 @@ h1, h2 {
 
 .logout button:hover {
     background-color: #c82333;
+}
+
+.intro-text {
+    font-size: 0.9em; 
+    color: #6e6c6c;
+}
+
+.top10-list {
+    display: flex;
+    flex-wrap: nowrap; /* 不換行，橫向排列 */
+    overflow-x: auto; /* 橫向滾動 */
+    justify-content: center; /* 置中內容 */
 }
