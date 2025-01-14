@@ -7,7 +7,7 @@ document.getElementById('addMovieForm').addEventListener('submit', function(even
     const movie_name = document.getElementById('movie_name').value;
     const movie_lv = document.getElementById('movie_lv').value;
 
-    axios.post('/server/php/admin_home.php', {
+    axios.post('/server/php/add_movie.php', {
         movie_id: movie_id,
         movie_type: movie_type,
         movie_name: movie_name,
