@@ -8,7 +8,7 @@ function doSelect() {
                 const rows = response.result;
 
                 str = "<table>";
-                str += "<tr><th>會員編號</th><th>姓名</th><th>電話</th><th>電子信箱</th></tr>";
+                str += "<tr><th>會員帳號</th><th>姓名</th><th>電話</th><th>電子信箱</th></tr>";
                 rows.forEach(element => {
                     str += "<tr>";
                     str += "<td>" + element.member_account + "</td>";

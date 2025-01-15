@@ -11,15 +11,18 @@
     <div class="container">
         <h1>使用者管理</h1>
         <button id="fetch-users">查詢所有使用者</button>
+        <button id="delete-users">刪除使用者</button>
         <div id="user-list"></div>
-        <form id="delete-user-form">
-            <button type="submit">刪除選擇的使用者</button>
+        <form id="delete-user-form" style="display: none;">
+            <button type="submit" id="confirm-delete-user-button">刪除</button>
         </form>
         <div id="response-message"></div>
         <a href="admin_home.html">返回上一頁</a>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/qs/dist/qs.js"></script>
     <script src="../js/fetch_users.js"></script>
+    <script src="../js/manage_users.js"></script>
 </body>
 </html>
