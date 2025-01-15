@@ -1,3 +1,4 @@
+htdocs/DataBaseFinal/server/php/get_users.php
 <?php
 require_once '../DB.php';
 
@@ -11,23 +12,23 @@ function getUsers() {
     // 獲取資料庫連接
     $pdo = Database::getInstance()->getConnection();
 
-    // 獲取使用者列表
-    try {
-        $stmt = $pdo->query("SELECT account, name FROM users");
-        $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    // 查詢使用者清單，添加條件 member_role = 'user'
+    $sql = "SELECT * FROM member WHERE member_role = 'user'";
+    $stmt = $pdo->prepare($sql);
+    $result = $stmt->execute();
 
+    if ($result) {
+        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $response['status'] = 200; // OK
-        $response['message'] = '查詢成功';
-        $response['result'] = $users;
-    } catch (PDOException $e) {
+        $response['message'] = "查詢成功";
+        $response['result'] = $rows;
+    } else {
         $response['status'] = 400; // Bad Request
-        $response['message'] = '資料庫錯誤: ' . $e->getMessage();
+        $response['message'] = "SQL錯誤";
     }
 
-    return $response;
+    echo json_encode($response);
 }
 
-$response = getUsers();
-header('Content-Type: application/json');
-echo json_encode($response);
+getUsers();
 ?>

@@ -5,78 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>使用者管理</title>
     <link rel="stylesheet" href="../css/admin_home.css">
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="../js/user_management.js" defer></script>
+    <link rel="stylesheet" href="../css/user_management.css">
 </head>
 <body>
     <div class="container">
-        <h2>使用者管理</h2>
-        <div class="user-actions">
-            <button type="button" id="fetch-users">查詢所有使用者</button>
-            <button type="button" id="delete-user">刪除使用者</button>
-        </div>
-        <div id="user-list">
-            <!-- 這裡將動態生成使用者列表 -->
-        </div>
-        <form id="deleteUserForm" action="../../server/php/delete_user.php" method="POST" style="display:none;">
-            <div id="user-delete-list">
-                <!-- 這裡將動態生成可刪除的使用者列表 -->
-            </div>
+        <h1>使用者管理</h1>
+        <button id="fetch-users">查詢所有使用者</button>
+        <div id="user-list"></div>
+        <form id="delete-user-form">
             <button type="submit">刪除選擇的使用者</button>
         </form>
         <div id="response-message"></div>
+        <a href="admin_home.html">返回上一頁</a>
     </div>
 
-    <script>
-        // 使用 AJAX 獲取使用者列表並生成表格
-        document.getElementById('fetch-users').addEventListener('click', function() {
-            axios.get('../../server/php/get_users.php')
-                .then(function(response) {
-                    const userList = document.getElementById('user-list');
-                    userList.innerHTML = ''; // 清空列表
-                    response.data.result.forEach(function(user) {
-                        const div = document.createElement('div');
-                        div.textContent = `帳號: ${user.account}, 姓名: ${user.name}`;
-                        userList.appendChild(div);
-                    });
-                })
-                .catch(function(error) {
-                    console.error('無法獲取使用者列表:', error);
-                });
-        });
-
-        // 顯示刪除使用者表單
-        document.getElementById('delete-user').addEventListener('click', function() {
-            axios.get('../../server/php/get_users.php')
-                .then(function(response) {
-                    const userDeleteList = document.getElementById('user-delete-list');
-                    userDeleteList.innerHTML = ''; // 清空列表
-                    response.data.result.forEach(function(user) {
-                        const label = document.createElement('label');
-                        label.innerHTML = `<input type="radio" name="user_id" value="${user.id}"> ${user.account} (${user.name})`;
-                        userDeleteList.appendChild(label);
-                        userDeleteList.appendChild(document.createElement('br'));
-                    });
-                    document.getElementById('deleteUserForm').style.display = 'block';
-                })
-                .catch(function(error) {
-                    console.error('無法獲取使用者列表:', error);
-                });
-        });
-
-        // 處理刪除使用者表單提交
-        document.getElementById('deleteUserForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            const formData = new FormData(this);
-            axios.post('../../server/php/delete_user.php', formData)
-                .then(function(response) {
-                    const responseMessage = document.getElementById('response-message');
-                    responseMessage.textContent = response.data.message;
-                })
-                .catch(function(error) {
-                    console.error('刪除使用者失敗:', error);
-                });
-        });
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="../js/fetch_users.js"></script>
 </body>
 </html>
