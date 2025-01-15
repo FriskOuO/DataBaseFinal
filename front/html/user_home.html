@@ -11,39 +11,38 @@
         <h1>歡迎回來，使用者！</h1>
         <p class="intro-text">這是使用者登入後的首頁。</p>
 
-
-        <!-- 年度TOP10 -->
-        <div class="top10">
-            <h2>年度TOP10</h2>
-            <div class="top10-list">
-                <div class="top10-item">
-                    <img src="../movie/top1.jpg" alt="Top 1">
+        <!-- Top 10 內容 -->
+        <h2>Top 10</h2>
+        <div class="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item">
+                    <img src="../movie/top1.png" alt="Top 1">
                 </div>
-                <div class="top10-item">
+                <div class="carousel-item">
                     <img src="../movie/top2.jpg" alt="Top 2">
                 </div>
-                <div class="top10-item">
+                <div class="carousel-item">
                     <img src="../movie/top3.jpg" alt="Top 3">
                 </div>
-                <div class="top10-item">
+                <div class="carousel-item">
                     <img src="../movie/top4.jpg" alt="Top 4">
                 </div>
-                <div class="top10-item">
+                <div class="carousel-item">
                     <img src="../movie/top5.jpg" alt="Top 5">
                 </div>
-                <div class="top10-item">
+                <div class="carousel-item">
                     <img src="../movie/top6.jpg" alt="Top 6">
                 </div>
-                <div class="top10-item">
+                <div class="carousel-item">
                     <img src="../movie/top7.jpg" alt="Top 7">
                 </div>
-                <div class="top10-item">
+                <div class="carousel-item">
                     <img src="../movie/top8.jpg" alt="Top 8">
                 </div>
-                <div class="top10-item">
+                <div class="carousel-item">
                     <img src="../movie/top9.jpg" alt="Top 9">
                 </div>
-                <div class="top10-item">
+                <div class="carousel-item">
                     <img src="../movie/top10.jpg" alt="Top 10">
                 </div>
             </div>
@@ -63,11 +62,10 @@
                 <img src="../movie/movie3.jpg" alt="推薦影片3">
             </div>
         </div>
-        
-        <!-- 搜尋框 -->
-        <div class="search-box">
-            <input type="text" placeholder="搜尋影片...">
-            <button type="button">搜尋</button>
+
+        <!-- 查詢電影按鈕 -->
+        <div class="search-movie">
+            <button type="button" onclick="location.href='search_movie.html'">查詢電影</button>
         </div>
 
         <!-- 登出按鈕 -->
@@ -75,5 +73,7 @@
             <button type="button" onclick="location.href='login_button.html'">登出</button>
         </div>
     </div>
+
+    <script src="../js/user_home.js"></script>
 </body>
 </html>

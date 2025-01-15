@@ -15,52 +15,64 @@ body {
 
 h1, h2 {
     color: #333;
+    text-align: center;
 }
 
-.plan ul {
-    list-style-type: none;
-    padding: 0;
+.intro-text {
+    color: #666;
+    text-align: center;
 }
 
-.plan li {
-    margin: 10px 0;
+.carousel {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 10px;
 }
 
-.plan a {
-    text-decoration: none;
-    color: #007BFF;
+.carousel-inner {
+    display: flex;
+    transition: transform 0.5s ease;
 }
 
-.plan a:hover {
-    text-decoration: underline;
+.carousel-item {
+    min-width: 33.33%; /* 一次顯示三張圖片 */
+    box-sizing: border-box;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
 }
 
 .recommendations {
-    margin-top: 20px;
     display: flex;
-    justify-content: center;
-    flex-wrap: nowrap; 
-    overflow-x: auto; 
+    justify-content: space-around;
+    margin: 20px 0;
+    overflow-x: auto; /* 允許水平滾動 */
 }
 
-.recommendation-item, .top10-item {
-    background-color: #e9ecef;
-    padding: 10px;
-    margin: 10px;
-    border-radius: 5px;
-    flex: 0 0 auto; 
-    width: 200px; 
-    height: 300px; 
+.recommendation-item {
+    flex: 0 0 auto; /* 防止項目縮小 */
+    width: 300px; /* 調整單格圖片的寬度 */
+    height: 450px; /* 調整單格圖片的高度 */
+    margin: 0 10px;
     display: flex;
     justify-content: center;
-    align-items: center; 
+    align-items: center;
     overflow: hidden;
+    background-color: #e9ecef;
+    border-radius: 5px;
 }
 
-.recommendation-item img, .top10-item img {
-    width: 100%; 
-    height: 100%; 
-    object-fit: cover; 
+.recommendation-item img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* 確保圖片完整顯示 */
+    border-radius: 10px;
 }
 
 .search-box {
@@ -89,15 +101,16 @@ h1, h2 {
 }
 
 .logout {
-    margin-top: 20px;
-    text-align: right;
+    text-align: center;
+    margin: 20px 0;
 }
 
 .logout button {
     padding: 10px 20px;
-    border: none;
-    background-color: #dc3545;
+    font-size: 16px;
     color: #fff;
+    background-color: #dc3545; /* 紅色 */
+    border: none;
     border-radius: 5px;
     cursor: pointer;
 }
@@ -106,14 +119,53 @@ h1, h2 {
     background-color: #c82333;
 }
 
-.intro-text {
-    font-size: 0.9em; 
-    color: #6e6c6c;
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
-.top10-list {
-    display: flex;
-    flex-wrap: nowrap; /* 不換行，橫向排列 */
-    overflow-x: auto; /* 橫向滾動 */
-    justify-content: center; /* 置中內容 */
+button:hover {
+    background-color: #0056b3;
+}
+
+.search-movie {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.search-movie button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.search-movie button:hover {
+    background-color: #0056b3;
+}
+
+.plan ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.plan li {
+    margin: 10px 0;
+}
+
+.plan a {
+    text-decoration: none;
+    color: #007BFF;
+}
+
+.plan a:hover {
+    text-decoration: underline;
 }
