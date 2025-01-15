@@ -2,12 +2,10 @@ function doSelect() {
     axios.get("../../server/php/get_users.php")
         .then(res => {
             const response = res.data;
-            console.log('Response:', response); // 添加調試信息
             let str;
-
+                    
             if (response.status === 200) {
                 const rows = response.result;
-                console.log('Rows:', rows); // 添加調試信息
 
                 str = "<table>";
                 str += "<tr><th>會員編號</th><th>姓名</th><th>電話</th><th>電子信箱</th></tr>";
