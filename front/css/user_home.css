@@ -75,48 +75,9 @@ h1, h2 {
     border-radius: 10px;
 }
 
-.search-box {
-    margin-top: 20px;
-    display: flex;
-}
-
-.search-box input[type="text"] {
-    flex: 1;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px 0 0 5px;
-}
-
-.search-box button {
-    padding: 10px;
-    border: 1px solid #007BFF;
-    background-color: #007BFF;
-    color: #fff;
-    border-radius: 0 5px 5px 0;
-    cursor: pointer;
-}
-
-.search-box button:hover {
-    background-color: #0056b3;
-}
-
-.logout {
+.search-movie, .edit-profile, .logout {
     text-align: center;
     margin: 20px 0;
-}
-
-.logout button {
-    padding: 10px 20px;
-    font-size: 16px;
-    color: #fff;
-    background-color: #dc3545; /* 紅色 */
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.logout button:hover {
-    background-color: #c82333;
 }
 
 button {
@@ -133,39 +94,10 @@ button:hover {
     background-color: #0056b3;
 }
 
-.search-movie {
-    text-align: center;
-    margin: 20px 0;
+.logout button {
+    background-color: #dc3545; /* 紅色 */
 }
 
-.search-movie button {
-    padding: 10px 20px;
-    font-size: 16px;
-    color: #fff;
-    background-color: #007bff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.search-movie button:hover {
-    background-color: #0056b3;
-}
-
-.plan ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.plan li {
-    margin: 10px 0;
-}
-
-.plan a {
-    text-decoration: none;
-    color: #007BFF;
-}
-
-.plan a:hover {
-    text-decoration: underline;
+.logout button:hover {
+    background-color: #c82333;
 }
