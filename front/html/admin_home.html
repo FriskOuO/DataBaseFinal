@@ -10,46 +10,21 @@
 </head>
 <body>
     <div class="container">
-        <div class="plan">
-            <h2>訂閱專區</h2>
-            <ul>
-                <li><a href="#personal-plan">個人方案</a></li>
-                <li><a href="#student-plan">學生方案</a></li>
-                <li><a href="#family-plan">家庭方案</a></li>
-            </ul>
+        <!-- 在網頁的上方加入歡迎訊息 -->
+        <div class="welcome-message">
+            <h2>歡迎 {{member_name}} 管理者</h2>
         </div>
 
         <!-- 影片管理 -->
-        <!--<div class="upload-movies">
-            <h2>管理</h2>
-            <button type="button" id="show-add-movie-form">新增影片</button>
-            <button type="button">下架影片</button>
-        </div>>>-->
-
-        <!-- 新增影片表單 -->
-        <!-- 新增影片表單 -->
-        <div id="add-movie-form">
-            <h2>新增影片</h2>
-            <form id="addMovieForm"> <!-- 修正這裡的 id -->
-                <label for="movie_id">影片編號:</label>
-                <input type="text" id="movie_id" name="movie_id" required><br>
-                <label for="movie_type">影片類型:</label>
-                <input type="text" id="movie_type" name="movie_type" required><br>
-                <label for="movie_name">影片名稱:</label>
-                <input type="text" id="movie_name" name="movie_name" required><br>
-                <label for="movie_lv">影片等級:</label>
-                <input type="text" id="movie_lv" name="movie_lv" required><br>
-        
-                <button type="submit">提交</button> <!-- 修正這裡的 type -->
-            </form>
+        <div class="upload-movies">
+            <button type="button" onclick="location.href='add_movie.html'">新增影片</button>
+            <button type="button" onclick="location.href='delete_movie.html'">下架影片</button>
         </div>
 
         <!-- 後台管理功能 -->
         <div class="admin-functions">
             <h2>後台管理功能</h2>
-            <ul>
-                <li><a href="#user-management">使用者管理</a></li>
-            </ul>
+            <button type="button" onclick="location.href='user_management.html'">使用者管理</button>
             <!-- 使用者清單顯示區域 -->
             <div id="user-list"></div>
         </div>
@@ -62,7 +37,7 @@
 
         <!-- 登出按鈕 -->
         <div class="logout">
-            <button type="button">登出</button>
+            <button type="button" onclick="location.href='login_button.html'">登出</button>
         </div>
     </div>
 </body>

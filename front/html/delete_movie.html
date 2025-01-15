@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>刪除影片</title>
+    <link rel="stylesheet" href="../css/admin_home.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="../js/delete_movie.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <h2>刪除影片</h2>
+        <form id="deleteMovieForm" method="POST">
+            <div id="movie-list">
+                <!-- 這裡將動態生成影片列表 -->
+            </div>
+            <button type="submit">刪除選擇的影片</button>
+        </form>
+        <div id="response-message"></div>
+    </div>
+
+    <script>
+        // 使用 AJAX 獲取影片列表並生成 radio 按鈕
+        document.addEventListener('DOMContentLoaded', function() {
+            axios.get('../../server/php/get_movies.php')
+                .then(function(response) {
+                    const movieList = document.getElementById('movie-list');
+                    response.data.movies.forEach(function(movie) {
+                        const label = document.createElement('label');
+                        label.innerHTML = `<input type="radio" name="movie_id" value="${movie.movie_id}"> ${movie.movie_name}`;
+                        movieList.appendChild(label);
+                        movieList.appendChild(document.createElement('br'));
+                    });
+                })
+                .catch(function(error) {
+                    console.error('無法獲取影片列表:', error);
+                });
+        });
+
+        // 處理表單提交
+        document.getElementById('deleteMovieForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const formData = new FormData(this);
+            axios.post('../../server/php/delete_movie.php', formData)
+                .then(function(response) {
+                    const responseMessage = document.getElementById('response-message');
+                    responseMessage.textContent = response.data.message;
+                })
+                .catch(function(error) {
+                    console.error('刪除影片失敗:', error);
+                });
+        });
+    </script>
+</body>
+</html>
