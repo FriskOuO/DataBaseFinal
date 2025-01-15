@@ -1,33 +1,43 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin: 0;
 }
+
 .container {
-    background-color: #fff;
+    width: 80%;
+    max-width: 600px;
     padding: 20px;
-    border-radius: 8px;
+    background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
+
 h1 {
     color: #333;
 }
-.error-message {
+
+p.error {
     color: red;
-    font-size: 18px;
-    margin-bottom: 20px;
+    text-align: center; /* 訊息置中 */
 }
-.return-link {
-    color: green;
+
+p.error-message {
+    color: red; /* 設置預期外的錯誤訊息為紅色 */
+}
+
+a {
+    color: green; /* 設置超連結為綠色 */
     text-decoration: none;
-    font-size: 16px;
-    margin-top: 15px;
+    display: inline-block;
+    margin-top: 20px;
 }
-.return-link:hover {
+
+a:hover {
     text-decoration: underline;
 }
